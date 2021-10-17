@@ -47,7 +47,7 @@ La licenciante no puede revocar estas libertades en tanto usted siga los términ
 ## Enlaces de interés 👀
 
 * [Tablero en Trello] - https://trello.com/b/yRkv14iz/proyecto-dps
-* [Manual de usuario en la nube] - 
+* [Manual de usuario en la nube] - https://drive.google.com/file/d/1O75b-P0NlsAsMn2wtlaZ7dWxpJ0MLzi4/view?usp=sharing
 * [Manual Técnico en la nube] - https://drive.google.com/file/d/1SVmXyQ0fKlWN7ul73PKM0R5HTGL7EPPI/view?usp=sharing
 * [Video de funcionamiento] - https://drive.google.com/drive/folders/10aGSVlWUK3E0l6xX4CC9dhkRHsoPYnDw?usp=sharing
 * [Enlace a Mockups] - https://www.figma.com/file/Bnn3M0OEBgZXGoUKs7v2oB/Freebie---Coworking-Space-Landing-Page-(Community)?node-id=105%3A1653 - https://www.figma.com/proto/4rMnU4wmmxzOarth47RTFc/Prototyping-in-Figma?node-id=0%3A90&scaling=scale-down&page-id=0%3A1&starting-point-node-id=0%3A2
