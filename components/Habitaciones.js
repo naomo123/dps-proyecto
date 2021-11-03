@@ -10,7 +10,7 @@ import {
   ScrollView,
 } from "react-native";
 import Carousel from "react-native-anchor-carousel";
-import { AntDesign } from "@expo/vector-icons";
+import { AntDesign, MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/core";
 import Modal from "./Modal";
 import hab1 from "../assets/h1.jpg";
@@ -21,7 +21,6 @@ import hab5 from "../assets/h5.jpg";
 import hab6 from "../assets/h6.jpg";
 import hab7 from "../assets/h7.jpg";
 import hab8 from "../assets/h8.jpg";
-import { Entypo } from "@expo/vector-icons";
 const Habitaciones = () => {
   const DATA = [
     { src: require("../assets/ins1.jpg") },
@@ -102,6 +101,18 @@ const Habitaciones = () => {
                   si así lo desea. Barra libre. Recorrido a nuestras
                   instalaciones
                 </Text>
+                <MaterialIcons
+                  name="add-shopping-cart"
+                  size={50}
+                  color="white"
+                  style={{
+                    flex: 1,
+                    flexDirection: "row",
+                    alignItems: "center",
+                    justifyContent: "flex-start",
+                    marginLeft: 30,
+                  }}
+                />
               </ImageBackground>
             </Modal>
 
@@ -133,6 +144,18 @@ const Habitaciones = () => {
                   si así lo desea. Barra libre. Recorrido a nuestras
                   instalaciones
                 </Text>
+                <MaterialIcons
+                  name="add-shopping-cart"
+                  size={50}
+                  color="white"
+                  style={{
+                    flex: 1,
+                    flexDirection: "row",
+                    alignItems: "center",
+                    justifyContent: "flex-start",
+                    marginLeft: 30,
+                  }}
+                />
               </ImageBackground>
             </Modal>
 
@@ -156,7 +179,7 @@ const Habitaciones = () => {
                   vista al jardín
                 </Text>
                 <Text style={styles.textocat}>
-                  Precio: $250 una noche con todo incluido.{" "}
+                  Precio: $250 una noche con todo incluido
                 </Text>
 
                 <Text style={styles.textocat}>
@@ -164,15 +187,19 @@ const Habitaciones = () => {
                   si así lo desea. Barra libre. Recorrido a nuestras
                   instalaciones
                 </Text>
-              </ImageBackground>{" "}
-              <ImageBackground
-                source={hab3}
-                style={{
-                  flex: 1,
-                  justifyContent: "center",
-                  resizeMode: "contain",
-                }}
-              />
+                <MaterialIcons
+                  name="add-shopping-cart"
+                  size={50}
+                  color="white"
+                  style={{
+                    flex: 1,
+                    flexDirection: "row",
+                    alignItems: "center",
+                    justifyContent: "flex-start",
+                    marginLeft: 30,
+                  }}
+                />
+              </ImageBackground>
             </Modal>
 
             <TouchableOpacity onPress={() => setView4(true)}>
@@ -195,7 +222,7 @@ const Habitaciones = () => {
                   vista al jardín
                 </Text>
                 <Text style={styles.textocat}>
-                  Precio: $250 una noche con todo incluido.{" "}
+                  Precio: $250 una noche con todo incluido.
                 </Text>
 
                 <Text style={styles.textocat}>
@@ -203,6 +230,18 @@ const Habitaciones = () => {
                   si así lo desea. Barra libre. Recorrido a nuestras
                   instalaciones
                 </Text>
+                <MaterialIcons
+                  name="add-shopping-cart"
+                  size={50}
+                  color="white"
+                  style={{
+                    flex: 1,
+                    flexDirection: "row",
+                    alignItems: "center",
+                    justifyContent: "flex-start",
+                    marginLeft: 30,
+                  }}
+                />
               </ImageBackground>
             </Modal>
 
@@ -234,6 +273,18 @@ const Habitaciones = () => {
                   si así lo desea. Barra libre. Recorrido a nuestras
                   instalaciones
                 </Text>
+                <MaterialIcons
+                  name="add-shopping-cart"
+                  size={50}
+                  color="white"
+                  style={{
+                    flex: 1,
+                    flexDirection: "row",
+                    alignItems: "center",
+                    justifyContent: "flex-start",
+                    marginLeft: 30,
+                  }}
+                />
               </ImageBackground>
             </Modal>
 
@@ -265,6 +316,18 @@ const Habitaciones = () => {
                   si así lo desea. Barra libre. Recorrido a nuestras
                   instalaciones
                 </Text>
+                <MaterialIcons
+                  name="add-shopping-cart"
+                  size={50}
+                  color="white"
+                  style={{
+                    flex: 1,
+                    flexDirection: "row",
+                    alignItems: "center",
+                    justifyContent: "flex-start",
+                    marginLeft: 30,
+                  }}
+                />
               </ImageBackground>
             </Modal>
 
@@ -296,6 +359,18 @@ const Habitaciones = () => {
                   si así lo desea. Barra libre. Recorrido a nuestras
                   instalaciones
                 </Text>
+                <MaterialIcons
+                  name="add-shopping-cart"
+                  size={50}
+                  color="white"
+                  style={{
+                    flex: 1,
+                    flexDirection: "row",
+                    alignItems: "center",
+                    justifyContent: "flex-start",
+                    marginLeft: 30,
+                  }}
+                />
               </ImageBackground>
             </Modal>
 
@@ -312,7 +387,7 @@ const Habitaciones = () => {
                   height: "95%",
                 }}
               >
-                <View style={styles.containTexto}>
+
                   <Text style={styles.titulocat}>Habitación estándar</Text>
                   <Text style={styles.textocat}>
                     Es dueña de acabados medievales, posee una cama matrimonial
@@ -328,7 +403,18 @@ const Habitaciones = () => {
                     habitación si así lo desea. Barra libre. Recorrido a
                     nuestras instalaciones
                   </Text>
-                </View>
+                <MaterialIcons
+                  name="add-shopping-cart"
+                  size={50}
+                  color="white"
+                  style={{
+                    flex: 1,
+                    flexDirection: "row",
+                    alignItems: "center",
+                    justifyContent: "flex-start",
+                    marginLeft: 30,
+                  }}
+                />
               </ImageBackground>
             </Modal>
           </View>
