@@ -8,7 +8,6 @@ import {
   Alert,
   ImageBackground,
   ScrollView,
-  Dimensions,
 } from "react-native";
 import Carousel from "react-native-anchor-carousel";
 import { AntDesign } from "@expo/vector-icons";
@@ -23,7 +22,6 @@ import hab6 from "../assets/h6.jpg";
 import hab7 from "../assets/h7.jpg";
 import hab8 from "../assets/h8.jpg";
 import { Entypo } from "@expo/vector-icons";
-const { width: windowWidth } = Dimensions.get("window");
 const Habitaciones = () => {
   const DATA = [
     { src: require("../assets/ins1.jpg") },
@@ -42,13 +40,8 @@ const Habitaciones = () => {
   const [view7, setView7] = useState(false);
   const [view8, setView8] = useState(false);
 
-  const INITIAL_INDEX = 0;
   const carouselRef = useRef(null);
-  const [currentIndex, setCurrentIndex] = useState(INITIAL_INDEX);
 
-  function handleCarouselScrollEnd(item, index) {
-    setCurrentIndex(index);
-  }
   function renderItem({ item, index }) {
     return (
       <TouchableOpacity
@@ -72,11 +65,10 @@ const Habitaciones = () => {
             style={styles.carousel}
             data={DATA}
             renderItem={renderItem}
-            itemWidth={500*0.7}
-            inActiveOpacity={0.3}
-            containerWidth={500}
-            onScrollEnd={handleCarouselScrollEnd}
+            itemWidth={250}
+            containerWidth={325}
             ref={carouselRef}
+            useS
           />
 
           <Text style={styles.subtitulo}>CATÁLOGO DE HABITACIONES</Text>
@@ -368,7 +360,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "ivory",
   },
-  imagenCarr: { width: 350, height: 350, borderWidth: 3, borderColor: "white" ,flex: 1,},
+  imagenCarr: {
+    width: 250,
+    height: 325,
+    borderWidth: 5,
+    borderColor: "white",
+    flex: 1,
+  },
   content2: {
     margin: 10,
     alignItems: "center",
@@ -390,12 +388,14 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     justifyContent: "center",
     alignContent: "space-between",
+    flex: 1,
   },
   catalogo_img: {
     width: 165,
     height: 250,
-    margin: 10,
+    margin: 5,
     borderRadius: 5,
+    flexGrow: 0,
   },
   textocat: {
     color: "white",
@@ -436,9 +436,9 @@ const styles = StyleSheet.create({
   },
   carousel: {
     backgroundColor: "#141518",
-    aspectRatio: 1.5,
+    aspectRatio: 1.3,
+    marginBottom: 20,
     flexGrow: 0,
-    marginBottom: 1,
   },
 });
 export default Habitaciones;
