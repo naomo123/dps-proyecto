@@ -14,7 +14,7 @@ _Para poder hacer uso de está aplicación, es necesario contar un el IDE de des
 
 ## Guia de Instalación 💻
 
-Antes de comenzar, asegurese de tener instaldo:
+Antes de comenzar, asegurese de tener instalado:
 
 * Android Studio (v4.1.3)
 * Java
@@ -22,7 +22,7 @@ Antes de comenzar, asegurese de tener instaldo:
 * Git
 
 1. Seleccionar una carpeta de su equipo local donde clonará y almacenará el repositorio
-2. Una vez seleccionada la carpeta, abra "Git Bash" y ejecute el comando git clone https://github.com/Aby3005/PROYECTO-DPS.git Esto le permitirá conectarse de una vez al repositorio.
+2. Una vez seleccionada la carpeta, abra "Git Bash" y ejecute el comando git clone https://github.com/naomo123/dps-proyecto.git Esto le permitirá conectarse de una vez al repositorio.
 3. Crear una rama de colaboración para poder agregar los cambios realizados a Github.
 4. Una vez este conectado al repositorio y haya creado su rama, puede comenzar a colaborar desde su equipo local, para lo que será necesario abrir el proyecto desde su Android Studio.
 5. Realice las modificaciones necesarias y ejecute los comandos: git add -A para agregar los cambios, git commit -m "comentario" y finalmente git push -u origin SuRama para agregar los cambios al repositorio remoto.
