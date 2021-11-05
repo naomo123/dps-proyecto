@@ -1,86 +1,70 @@
 
-import {View, Text, TextInput, StyleSheet, TouchableOpacity} from "react-native";
+import {View, Text, TextInput, StyleSheet, TouchableOpacity, Platform} from "react-native";
 import React, {useEffect, useState} from 'react';
 import { Card} from 'react-native-elements';
 import { AntDesign } from '@expo/vector-icons';
-import { auth } from "./firebase";
+import 'firebase/app'
+import { auth, provider } from "./firebase";
 import { useNavigation } from "@react-navigation/core";
 
 const Login = ()=> {
 
   const navigation = useNavigation("")
-    const [email, setEmail]=useState('');
-    const [password, setPassword]=useState('');
+  const [email, setEmail]=useState('');
+  const [password, setPassword]=useState('');
 
 
-    useEffect(() => {
-   const unsubscribe = auth.onAuthStateChanged(user => {
-            if(user){
-                    navigation.navigate('Perfil')
-            }
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(user => {
+      if(user){
+        navigation.navigate('Perfil')
+      }
     } ) 
     return unsubscribe
-    }, [])
+  }, [])
 
-    const handleLogin = () => {
-    
-      auth
+  const googleLogin = (user) => {
+    auth.signInWithRedirect(provider).then(result => {alert('Login')});
+  }
+
+  const handleLogin = () => {
+  
+    auth
       .signInWithEmailAndPassword(email,password)
       .then(userCredentials => {
-         const user = userCredentials.user;
-         console.log('Logged in with: ',user.email);
+        const user = userCredentials.user;
+        console.log('Logged in with: ',user.email);
       })
-  .catch(error => alert(error.message))
-     }
-
-     
+      .catch(error => alert(error.message))
+  }
      
     return(
         <>
           
         <View style={styles.content}>
        
-            <Card containerstyle={styles.card}>
+          <Card containerstyle={styles.card}>
             <TouchableOpacity 
-            
-            onPress={()=>{
-navigation.navigate('Inicio')
-
-           
-            }}
+              onPress={()=>{
+                navigation.navigate('Inicio')
+              }}
             >
-           <AntDesign name="arrowleft"  style={styles.icon}  />
-          </TouchableOpacity>
-          <View style={styles.content2}>
-        
-    
-            <Text style={styles.titulo}>Iniciar sesión</Text>
-         
-           
-            <TextInput style={styles.input} placeholder="Username" 
-            value={email}
-           onChangeText={text => setEmail(text)}  
-            
-            />
-    
-            <TextInput secureTextEntry={true} 
-             placeholder="Password" style={styles.input}
-             value={password}
-            onChangeText={text => setPassword(text)}  
-            
-             />
-            <TouchableOpacity style={[styles.boton]}
-            
-             
-          onPress={handleLogin}
-            >
-            
-                <Text style={styles.texto}>Log in</Text>
-           
+              <AntDesign name="arrowleft"  style={styles.icon}  />
             </TouchableOpacity>
-          
-          
-          </View>
+            <View style={styles.content2}>
+              <Text style={styles.titulo}>Iniciar sesión</Text>
+              <TextInput style={styles.input} placeholder="Username" value={email} onChangeText={text => setEmail(text)} />
+              <TextInput secureTextEntry={true} placeholder="Password" style={styles.input} value={password} onChangeText={text => setPassword(text)} />
+              <TouchableOpacity style={[styles.boton]} onPress={handleLogin}>
+                <Text style={styles.texto}>Log in</Text>
+              </TouchableOpacity>
+              {Platform.OS === 'web' ? (
+                <TouchableOpacity style={styles.botonGoogle} onPress={googleLogin}>
+                  <Text style={styles.textoGoogle}><AntDesign name="google" size={24} color="red" /> Sign In with Google</Text>
+                </TouchableOpacity>
+              ) : null }
+              
+            </View>
           </Card>
         </View>
         </>
@@ -97,9 +81,7 @@ const styles = StyleSheet.create({
         justifyContent:'center'
       },
       card:{
-  alignItems:'center',
-  
-  
+        alignItems:'center',
       },
        content2: {
        margin:5,
@@ -109,8 +91,6 @@ const styles = StyleSheet.create({
       icon:{
           fontSize: 35,
           color: '#6e5535',
-         
-          
       },
       titulo: {
         marginTop: 80,
@@ -132,11 +112,9 @@ const styles = StyleSheet.create({
         marginBottom: 30,
       },
       boton: {
-       
         backgroundColor: 'rgb(168, 140, 81)',
-        
         width: 320,
-          height:40,
+        height:40,
         justifyContent:'center',
         borderRadius: 5,
         justifyContent: 'center',
@@ -146,5 +124,22 @@ const styles = StyleSheet.create({
         fontFamily: 'monospace',
         fontSize:20,
       },
+
+      botonGoogle: {
+        marginTop: 5,
+        backgroundColor: '#FFCCCC',
+        width: 320,
+        height:40,
+        justifyContent:'center',
+        borderRadius: 5,
+        justifyContent: 'center',
+      },
+      textoGoogle: {
+        textAlign: 'center',
+        fontFamily: 'monospace',
+        fontSize:20,
+        color: 'red'
+      },
 });
+
 export default Login;
