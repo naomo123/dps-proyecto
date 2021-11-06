@@ -37,12 +37,12 @@ Antes de comenzar, asegurese de tener instalado:
 
 ## Licencia 📄
 
-Este proyecto está bajo la licencia Reconocimiento - SinObraDerivada (by-nd)
+Este proyecto está bajo la licencia Reconocimiento-NoComercial-SinObraDerivada(CC BY-NC-ND).
 Que establece:
 
 Usted es libre de:
-Hacer uso comercial de la obra pero no la generación de obras derivadas.
-La licenciante no puede revocar estas libertades en tanto usted siga los términos de la licencia
+Compartir — copiar y redistribuir el material en cualquier medio o formato.
+El licenciador no puede revocar estas libertades mientras cumpla con los términos de la licencia.
 
 ## Enlaces de interés 👀
 
