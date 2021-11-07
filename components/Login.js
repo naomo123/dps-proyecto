@@ -26,7 +26,7 @@ const Login = (props)=> {
   }, [])
 
   const googleLogin = (user) => {
-    auth.signInWithRedirect(provider).then(result => {alert('Login');    
+    auth.signInWithRedirect(provider).then(result => {alert('Loginn');    
    
     var newInfo={
       state:true
