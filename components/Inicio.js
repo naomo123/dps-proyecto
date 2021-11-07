@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import img from "../assets/FONDO.jpg";
 import img2 from "../assets/fondo3.jpg";
+import fondonegro from "../assets/fondonegro.jpg"
 import Modal from "./Modal";
 
 const Inicio = () => {
@@ -42,7 +43,7 @@ const Inicio = () => {
 
             <Modal visible={informacion} onClose={() => setinformacion(false)}>
               <ImageBackground
-                source={img}
+                source={fondonegro}
                 style={{
                   resizeMode: "contain",
                   width: 345,
