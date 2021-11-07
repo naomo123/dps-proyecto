@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, Component, useEffect } from "react";
 import {
   View,
   Image,
@@ -9,6 +9,7 @@ import {
   ImageBackground,
   ScrollView,
 } from "react-native";
+import DataBase from "./DataBase";
 import Carousel from "react-native-anchor-carousel";
 import { AntDesign, MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/core";
@@ -21,7 +22,16 @@ import hab5 from "../assets/h5.jpg";
 import hab6 from "../assets/h6.jpg";
 import hab7 from "../assets/h7.jpg";
 import hab8 from "../assets/h8.jpg";
+
+
 const Habitaciones = () => {
+  // loading data from Database
+
+  const [habs, setHabs] = useState(DataBase);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const DATA = [
     { src: require("../assets/ins1.jpg") },
     { src: require("../assets/ins2.jpg") },
@@ -38,8 +48,16 @@ const Habitaciones = () => {
   const [view6, setView6] = useState(false);
   const [view7, setView7] = useState(false);
   const [view8, setView8] = useState(false);
-
   const carouselRef = useRef(null);
+  
+  const [key, setKey] = useState();
+  const [title, setTitle] = useState();
+  const [description, setDescription] = useState();
+  const [bed, setBed] = useState();
+  const [capacity, setCapacity] = useState();
+  const [bedType, setbedType] = useState();
+  const [price, setPrice] = useState();
+  const [amount, setAmount] = useState();
 
   function renderItem({ item, index }) {
     return (
@@ -54,6 +72,22 @@ const Habitaciones = () => {
       </TouchableOpacity>
     );
   }
+
+  function obtenerKey(key) {
+    const datosHabitacion = habs.find((obj) => obj.key === key);
+    console.log(datosHabitacion);
+    Object.values(datosHabitacion).map((e) => {
+      setKey(datosHabitacion.key);
+      setTitle(datosHabitacion.title);
+      setDescription(datosHabitacion.description);
+      setBed(datosHabitacion.bed);
+      setCapacity(datosHabitacion.capacity);
+      setbedType(datosHabitacion.bedType);
+      setPrice(datosHabitacion.price);
+      setPrice(datosHabitacion.amount);
+    });
+  }
+  
   return (
     <View style={styles.content}>
       <ScrollView>
@@ -73,7 +107,7 @@ const Habitaciones = () => {
           <Text style={styles.subtitulo}>CATÁLOGO DE HABITACIONES</Text>
 
           <View style={styles.grid}>
-            <TouchableOpacity onPress={() => setView1(true)}>
+            <TouchableOpacity onPress={() => {setView1(true); obtenerKey(1);}}>
               <Image source={hab1} style={styles.catalogo_img} />
             </TouchableOpacity>
 
@@ -86,37 +120,33 @@ const Habitaciones = () => {
                   height: "95%",
                 }}
               >
-                <Text style={styles.titulocat}>Habitación estándar</Text>
-                <Text style={styles.textocat}>
-                  Es dueña de acabados medievales, posee una cama matrimonial
-                  acompañadas de sábanas de la mejor calidad, con excelente
-                  vista al jardín
-                </Text>
-                <Text style={styles.textocat}>
-                  Precio: $250 una noche con todo incluido.{" "}
-                </Text>
-
-                <Text style={styles.textocat}>
-                  Todo incluido Tres tiempos de comida Servicio a la habitación
-                  si así lo desea. Barra libre. Recorrido a nuestras
-                  instalaciones
-                </Text>
-                <MaterialIcons
-                  name="add-shopping-cart"
-                  size={50}
-                  color="white"
-                  style={{
-                    flex: 1,
-                    flexDirection: "row",
-                    alignItems: "center",
-                    justifyContent: "flex-start",
-                    marginLeft: 30,
-                  }}
-                />
+                <Text style={styles.titulocat}>{title}</Text>
+                <Text style={styles.textocat}>{description}</Text>
+                <Text style={styles.textocat}>Precio ${price} </Text>
+                <Text style={styles.textocat}>Tipo de cama: {bedType}</Text> 
+                <Text style={styles.textocat}>Noches: {amount}</Text> 
+                <TouchableOpacity onPress={() => {obtenerKey(1);
+                
+                
+                
+                }}>
+                  <MaterialIcons
+                    name="add-shopping-cart"
+                    size={50}
+                    color={"white"}
+                    style={{
+                      flex: 1,
+                      flexDirection: "row",
+                      alignItems: "center",
+                      justifyContent: "flex-start",
+                      marginLeft: 30,
+                    }}
+                  />
+                </TouchableOpacity>
               </ImageBackground>
             </Modal>
 
-            <TouchableOpacity onPress={() => setView2(true)}>
+            <TouchableOpacity onPress={() => {setView2(true); obtenerKey(2);}}>
               <Image source={hab2} style={styles.catalogo_img} />
             </TouchableOpacity>
 
@@ -129,37 +159,28 @@ const Habitaciones = () => {
                   height: "95%",
                 }}
               >
-                <Text style={styles.titulocat}>Habitación estándar</Text>
-                <Text style={styles.textocat}>
-                  Es dueña de acabados medievales, posee una cama matrimonial
-                  acompañadas de sábanas de la mejor calidad, con excelente
-                  vista al jardín
-                </Text>
-                <Text style={styles.textocat}>
-                  Precio: $250 una noche con todo incluido.{" "}
-                </Text>
-
-                <Text style={styles.textocat}>
-                  Todo incluido Tres tiempos de comida Servicio a la habitación
-                  si así lo desea. Barra libre. Recorrido a nuestras
-                  instalaciones
-                </Text>
-                <MaterialIcons
-                  name="add-shopping-cart"
-                  size={50}
-                  color="white"
-                  style={{
-                    flex: 1,
-                    flexDirection: "row",
-                    alignItems: "center",
-                    justifyContent: "flex-start",
-                    marginLeft: 30,
-                  }}
-                />
+                <Text style={styles.titulocat}>{title}</Text>
+                <Text style={styles.textocat}>{description}</Text>
+                <Text style={styles.textocat}>Precio ${price} </Text>
+                <Text style={styles.textocat}>Tipo de cama: {bedType}</Text> 
+                <TouchableOpacity onPress={() => {obtenerKey(2); setView2(false)}}>
+                  <MaterialIcons
+                    name="add-shopping-cart"
+                    size={50}
+                    color="white"
+                    style={{
+                      flex: 1,
+                      flexDirection: "row",
+                      alignItems: "center",
+                      justifyContent: "flex-start",
+                      marginLeft: 30,
+                    }}
+                  />
+                </TouchableOpacity>
               </ImageBackground>
             </Modal>
 
-            <TouchableOpacity onPress={() => setView3(true)}>
+            <TouchableOpacity onPress={() => {setView3(true); obtenerKey(3);}}>
               <Image source={hab3} style={styles.catalogo_img} />
             </TouchableOpacity>
 
@@ -172,37 +193,28 @@ const Habitaciones = () => {
                   height: "95%",
                 }}
               >
-                <Text style={styles.titulocat}>Habitación estándar</Text>
-                <Text style={styles.textocat}>
-                  Es dueña de acabados medievales, posee una cama matrimonial
-                  acompañadas de sábanas de la mejor calidad, con excelente
-                  vista al jardín
-                </Text>
-                <Text style={styles.textocat}>
-                  Precio: $250 una noche con todo incluido
-                </Text>
-
-                <Text style={styles.textocat}>
-                  Todo incluido Tres tiempos de comida Servicio a la habitación
-                  si así lo desea. Barra libre. Recorrido a nuestras
-                  instalaciones
-                </Text>
-                <MaterialIcons
-                  name="add-shopping-cart"
-                  size={50}
-                  color="white"
-                  style={{
-                    flex: 1,
-                    flexDirection: "row",
-                    alignItems: "center",
-                    justifyContent: "flex-start",
-                    marginLeft: 30,
-                  }}
-                />
+               <Text style={styles.titulocat}>{title}</Text>
+                <Text style={styles.textocat}>{description}</Text>
+                <Text style={styles.textocat}>Precio ${price} </Text>
+                <Text style={styles.textocat}>Tipo de cama: {bedType}</Text> 
+                <TouchableOpacity onPress={() => {obtenerKey(3);setView3(false)}}>
+                  <MaterialIcons
+                    name="add-shopping-cart"
+                    size={50}
+                    color="white"
+                    style={{
+                      flex: 1,
+                      flexDirection: "row",
+                      alignItems: "center",
+                      justifyContent: "flex-start",
+                      marginLeft: 30,
+                    }}
+                  />
+                </TouchableOpacity>
               </ImageBackground>
             </Modal>
 
-            <TouchableOpacity onPress={() => setView4(true)}>
+            <TouchableOpacity onPress={() => {setView4(true); obtenerKey(4);}}>
               <Image source={hab4} style={styles.catalogo_img} />
             </TouchableOpacity>
 
@@ -215,37 +227,28 @@ const Habitaciones = () => {
                   height: "95%",
                 }}
               >
-                <Text style={styles.titulocat}>Habitación estándar</Text>
-                <Text style={styles.textocat}>
-                  Es dueña de acabados medievales, posee una cama matrimonial
-                  acompañadas de sábanas de la mejor calidad, con excelente
-                  vista al jardín
-                </Text>
-                <Text style={styles.textocat}>
-                  Precio: $250 una noche con todo incluido.
-                </Text>
-
-                <Text style={styles.textocat}>
-                  Todo incluido Tres tiempos de comida Servicio a la habitación
-                  si así lo desea. Barra libre. Recorrido a nuestras
-                  instalaciones
-                </Text>
-                <MaterialIcons
-                  name="add-shopping-cart"
-                  size={50}
-                  color="white"
-                  style={{
-                    flex: 1,
-                    flexDirection: "row",
-                    alignItems: "center",
-                    justifyContent: "flex-start",
-                    marginLeft: 30,
-                  }}
-                />
+                 <Text style={styles.titulocat}>{title}</Text>
+                <Text style={styles.textocat}>{description}</Text>
+                <Text style={styles.textocat}>Precio ${price} </Text>
+                <Text style={styles.textocat}>Tipo de cama: {bedType}</Text> 
+                <TouchableOpacity onPress={() => {obtenerKey(4); setView4(false)}}>
+                  <MaterialIcons
+                    name="add-shopping-cart"
+                    size={50}
+                    color="white"
+                    style={{
+                      flex: 1,
+                      flexDirection: "row",
+                      alignItems: "center",
+                      justifyContent: "flex-start",
+                      marginLeft: 30,
+                    }}
+                  />
+                </TouchableOpacity>
               </ImageBackground>
             </Modal>
 
-            <TouchableOpacity onPress={() => setView5(true)}>
+            <TouchableOpacity onPress={() => {setView5(true); obtenerKey(5);}}>
               <Image source={hab5} style={styles.catalogo_img} />
             </TouchableOpacity>
 
@@ -258,37 +261,28 @@ const Habitaciones = () => {
                   height: "95%",
                 }}
               >
-                <Text style={styles.titulocat}>Habitación estándar</Text>
-                <Text style={styles.textocat}>
-                  Es dueña de acabados medievales, posee una cama matrimonial
-                  acompañadas de sábanas de la mejor calidad, con excelente
-                  vista al jardín
-                </Text>
-                <Text style={styles.textocat}>
-                  Precio: $250 una noche con todo incluido.{" "}
-                </Text>
-
-                <Text style={styles.textocat}>
-                  Todo incluido Tres tiempos de comida Servicio a la habitación
-                  si así lo desea. Barra libre. Recorrido a nuestras
-                  instalaciones
-                </Text>
-                <MaterialIcons
-                  name="add-shopping-cart"
-                  size={50}
-                  color="white"
-                  style={{
-                    flex: 1,
-                    flexDirection: "row",
-                    alignItems: "center",
-                    justifyContent: "flex-start",
-                    marginLeft: 30,
-                  }}
-                />
+                 <Text style={styles.titulocat}>{title}</Text>
+                <Text style={styles.textocat}>{description}</Text>
+                <Text style={styles.textocat}>Precio ${price} </Text>
+                <Text style={styles.textocat}>Tipo de cama: {bedType}</Text> 
+                <TouchableOpacity onPress={() => {obtenerKey(5); setView5(false)}}>
+                  <MaterialIcons
+                    name="add-shopping-cart"
+                    size={50}
+                    color="white"
+                    style={{
+                      flex: 1,
+                      flexDirection: "row",
+                      alignItems: "center",
+                      justifyContent: "flex-start",
+                      marginLeft: 30,
+                    }}
+                  />
+                </TouchableOpacity>
               </ImageBackground>
             </Modal>
 
-            <TouchableOpacity onPress={() => setView6(true)}>
+            <TouchableOpacity onPress={() => {setView6(true); obtenerKey(6);}}>
               <Image source={hab6} style={styles.catalogo_img} />
             </TouchableOpacity>
 
@@ -301,37 +295,28 @@ const Habitaciones = () => {
                   height: "95%",
                 }}
               >
-                <Text style={styles.titulocat}>Habitación estándar</Text>
-                <Text style={styles.textocat}>
-                  Es dueña de acabados medievales, posee una cama matrimonial
-                  acompañadas de sábanas de la mejor calidad, con excelente
-                  vista al jardín
-                </Text>
-                <Text style={styles.textocat}>
-                  Precio: $250 una noche con todo incluido.{" "}
-                </Text>
-
-                <Text style={styles.textocat}>
-                  Todo incluido Tres tiempos de comida Servicio a la habitación
-                  si así lo desea. Barra libre. Recorrido a nuestras
-                  instalaciones
-                </Text>
-                <MaterialIcons
-                  name="add-shopping-cart"
-                  size={50}
-                  color="white"
-                  style={{
-                    flex: 1,
-                    flexDirection: "row",
-                    alignItems: "center",
-                    justifyContent: "flex-start",
-                    marginLeft: 30,
-                  }}
-                />
+                 <Text style={styles.titulocat}>{title}</Text>
+                <Text style={styles.textocat}>{description}</Text>
+                <Text style={styles.textocat}>Precio ${price} </Text>
+                <Text style={styles.textocat}>Tipo de cama: {bedType}</Text> 
+                <TouchableOpacity onPress={() => {obtenerKey(6); setView6(false)}}>
+                  <MaterialIcons
+                    name="add-shopping-cart"
+                    size={50}
+                    color="white"
+                    style={{
+                      flex: 1,
+                      flexDirection: "row",
+                      alignItems: "center",
+                      justifyContent: "flex-start",
+                      marginLeft: 30,
+                    }}
+                  />
+                </TouchableOpacity>
               </ImageBackground>
             </Modal>
 
-            <TouchableOpacity onPress={() => setView7(true)}>
+            <TouchableOpacity onPress={() => {setView7(true); obtenerKey(7);}}>
               <Image source={hab7} style={styles.catalogo_img} />
             </TouchableOpacity>
 
@@ -344,37 +329,28 @@ const Habitaciones = () => {
                   height: "95%",
                 }}
               >
-                <Text style={styles.titulocat}>Habitación estándar</Text>
-                <Text style={styles.textocat}>
-                  Es dueña de acabados medievales, posee una cama matrimonial
-                  acompañadas de sábanas de la mejor calidad, con excelente
-                  vista al jardín
-                </Text>
-                <Text style={styles.textocat}>
-                  Precio: $250 una noche con todo incluido.{" "}
-                </Text>
-
-                <Text style={styles.textocat}>
-                  Todo incluido Tres tiempos de comida Servicio a la habitación
-                  si así lo desea. Barra libre. Recorrido a nuestras
-                  instalaciones
-                </Text>
-                <MaterialIcons
-                  name="add-shopping-cart"
-                  size={50}
-                  color="white"
-                  style={{
-                    flex: 1,
-                    flexDirection: "row",
-                    alignItems: "center",
-                    justifyContent: "flex-start",
-                    marginLeft: 30,
-                  }}
-                />
+                 <Text style={styles.titulocat}>{title}</Text>
+                <Text style={styles.textocat}>{description}</Text>
+                <Text style={styles.textocat}>Precio ${price} </Text>
+                <Text style={styles.textocat}>Tipo de cama: {bedType}</Text> 
+                <TouchableOpacity onPress={() => {obtenerKey(7); setView7(false)}}>
+                  <MaterialIcons
+                    name="add-shopping-cart"
+                    size={50}
+                    color="white"
+                    style={{
+                      flex: 1,
+                      flexDirection: "row",
+                      alignItems: "center",
+                      justifyContent: "flex-start",
+                      marginLeft: 30,
+                    }}
+                  />
+                </TouchableOpacity>
               </ImageBackground>
             </Modal>
 
-            <TouchableOpacity onPress={() => setView8(true)}>
+            <TouchableOpacity onPress={() => {setView8(true); obtenerKey(8);}}>
               <Image source={hab8} style={styles.catalogo_img} />
             </TouchableOpacity>
 
@@ -387,34 +363,24 @@ const Habitaciones = () => {
                   height: "95%",
                 }}
               >
-
-                  <Text style={styles.titulocat}>Habitación estándar</Text>
-                  <Text style={styles.textocat}>
-                    Es dueña de acabados medievales, posee una cama matrimonial
-                    acompañadas de sábanas de la mejor calidad, con excelente
-                    vista al jardín
-                  </Text>
-                  <Text style={styles.textocat}>
-                    Precio: $250 una noche con todo incluido.{" "}
-                  </Text>
-
-                  <Text style={styles.textocat}>
-                    Todo incluido Tres tiempos de comida Servicio a la
-                    habitación si así lo desea. Barra libre. Recorrido a
-                    nuestras instalaciones
-                  </Text>
-                <MaterialIcons
-                  name="add-shopping-cart"
-                  size={50}
-                  color="white"
-                  style={{
-                    flex: 1,
-                    flexDirection: "row",
-                    alignItems: "center",
-                    justifyContent: "flex-start",
-                    marginLeft: 30,
-                  }}
-                />
+                 <Text style={styles.titulocat}>{title}</Text>
+                <Text style={styles.textocat}>{description}</Text>
+                <Text style={styles.textocat}>Precio ${price} </Text>
+                <Text style={styles.textocat}>Tipo de cama: {bedType}</Text> 
+                <TouchableOpacity onPress={() => {obtenerKey(8); setView8}}>
+                  <MaterialIcons
+                    name="add-shopping-cart"
+                    size={50}
+                    color="white"
+                    style={{
+                      flex: 1,
+                      flexDirection: "row",
+                      alignItems: "center",
+                      justifyContent: "flex-start",
+                      marginLeft: 30,
+                    }}
+                  />
+                </TouchableOpacity>
               </ImageBackground>
             </Modal>
           </View>
@@ -422,7 +388,7 @@ const Habitaciones = () => {
           <View style={styles.pie}>
             <TouchableOpacity
               style={styles.boton}
-              onPress={() => Alert.alert("Por el momento trabajamos en ello")}
+              onPress={() => navigation.navigate("TablaAgregar")}
             >
               <Text>RESERVA YA</Text>
             </TouchableOpacity>
