@@ -1,15 +1,16 @@
 
 import {View, Text, TextInput, StyleSheet, TouchableOpacity, Platform} from "react-native";
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import { Card} from 'react-native-elements';
 import { AntDesign } from '@expo/vector-icons';
 import 'firebase/app'
 import { auth, provider } from "./firebase";
 import { useNavigation } from "@react-navigation/core";
-
-const Login = ()=> {
+import {UserContext} from '../App';
+const Login = (props)=> {
 
   const navigation = useNavigation("")
+  const [user1,setUser1]=useContext(UserContext);
   const [email, setEmail]=useState('');
   const [password, setPassword]=useState('');
 
@@ -18,13 +19,20 @@ const Login = ()=> {
     const unsubscribe = auth.onAuthStateChanged(user => {
       if(user){
         navigation.navigate('Perfil')
-      }
+
+      }   
     } ) 
     return unsubscribe
   }, [])
 
   const googleLogin = (user) => {
-    auth.signInWithRedirect(provider).then(result => {alert('Login')});
+    auth.signInWithRedirect(provider).then(result => {alert('Login');    
+   
+    var newInfo={
+      state:true
+  }
+
+  setUser1(newInfo); navigation.navigate('Perfil') });
   }
 
   const handleLogin = () => {
@@ -34,6 +42,11 @@ const Login = ()=> {
       .then(userCredentials => {
         const user = userCredentials.user;
         console.log('Logged in with: ',user.email);
+        var newInfo={
+          state:true
+      }
+
+      setUser1(newInfo);
       })
       .catch(error => alert(error.message))
   }
