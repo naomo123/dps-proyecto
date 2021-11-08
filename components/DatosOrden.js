@@ -10,9 +10,8 @@ import {
 import { Card } from "react-native-elements";
 import { useNavigation } from "@react-navigation/core";
 import { AntDesign } from "@expo/vector-icons";
-const DatosOrden = () => {
+const DatosOrden = ({route}) => {
   const navigation = useNavigation();
-
   const [nombre, setNombre] = useState("");
   const [direccion, setDireccion] = useState("");
   const [telefono, setTelefono] = useState("");
@@ -27,13 +26,13 @@ const DatosOrden = () => {
           <ScrollView>
             <TouchableOpacity
               onPress={() => {
-                navigation.navigate("Perfil");
+                navigation.navigate("Habitaciones");
               }}
             >
               <AntDesign name="arrowleft" style={styles.icon} />
             </TouchableOpacity>
+            <Text style={styles.titulo}>Total a pagar: ${route.params.total}</Text>
             <Text style={styles.titulo}>Datos de Orden</Text>
-
             <TextInput
               style={styles.input}
               placeholder="NOMBRE COMPLETO"
@@ -170,3 +169,4 @@ const styles = StyleSheet.create({
   },
 });
 export default DatosOrden;
+
