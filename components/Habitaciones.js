@@ -81,8 +81,8 @@ const Habitaciones = () => {
     <View style={styles.content}>
       <ScrollView showsVerticalScrollIndicator>
         <View style={styles.content2}>
-          <Text style={styles.titulo}>HABITACIONES</Text>
-          <Text style={styles.subtitulo}>NUESTRAS INSTALACIONES</Text>
+          <Text style={styles.titulo}>Rooms</Text>
+          <Text style={styles.subtitulo}>OUR FACILITIES</Text>
           <Carousel
             style={styles.carousel}
             data={DATA}
@@ -93,7 +93,7 @@ const Habitaciones = () => {
             useS
           />
 
-          <Text style={styles.subtitulo}>CATÁLOGO DE HABITACIONES</Text>
+          <Text style={styles.subtitulo}>ROOM CATALOG</Text>
 
           <View style={styles.grid}>
             <TouchableOpacity
@@ -116,9 +116,9 @@ const Habitaciones = () => {
               >
                 <Text style={styles.titulocat}>{title}</Text>
                 <Text style={styles.textocat}>{description}</Text>
-                <Text style={styles.textocat}>Precio ${price} </Text>
-                <Text style={styles.textocat}>Tipo de cama: {bedType}</Text>
-                <Text style={styles.textocat}>Noches: {amount}</Text>
+                <Text style={styles.textocat}>Price ${price} </Text>
+                <Text style={styles.textocat}>Bed type: {bedType}</Text>
+                <Text style={styles.textocat}>Nights: {amount}</Text>
                 <TouchableOpacity
                   onPress={() => {
                     obtenerKey(1);
@@ -158,8 +158,8 @@ const Habitaciones = () => {
               >
                 <Text style={styles.titulocat}>{title}</Text>
                 <Text style={styles.textocat}>{description}</Text>
-                <Text style={styles.textocat}>Precio ${price} </Text>
-                <Text style={styles.textocat}>Tipo de cama: {bedType}</Text>
+                <Text style={styles.textocat}>Price: ${price} </Text>
+                <Text style={styles.textocat}>Bed type: {bedType}</Text>
                 <TouchableOpacity
                   onPress={() => {
                     obtenerKey(2);
@@ -199,8 +199,8 @@ const Habitaciones = () => {
               >
                 <Text style={styles.titulocat}>{title}</Text>
                 <Text style={styles.textocat}>{description}</Text>
-                <Text style={styles.textocat}>Precio ${price} </Text>
-                <Text style={styles.textocat}>Tipo de cama: {bedType}</Text>
+                <Text style={styles.textocat}>Price: ${price} </Text>
+                <Text style={styles.textocat}>Bed type: {bedType}</Text>
                 <TouchableOpacity
                   onPress={() => {
                     obtenerKey(3);
@@ -240,8 +240,8 @@ const Habitaciones = () => {
               >
                 <Text style={styles.titulocat}>{title}</Text>
                 <Text style={styles.textocat}>{description}</Text>
-                <Text style={styles.textocat}>Precio ${price} </Text>
-                <Text style={styles.textocat}>Tipo de cama: {bedType}</Text>
+                <Text style={styles.textocat}>Price: ${price} </Text>
+                <Text style={styles.textocat}>Bed type: {bedType}</Text>
                 <TouchableOpacity
                   onPress={() => {
                     obtenerKey(4);
@@ -281,8 +281,8 @@ const Habitaciones = () => {
               >
                 <Text style={styles.titulocat}>{title}</Text>
                 <Text style={styles.textocat}>{description}</Text>
-                <Text style={styles.textocat}>Precio ${price} </Text>
-                <Text style={styles.textocat}>Tipo de cama: {bedType}</Text>
+                <Text style={styles.textocat}>Price: ${price} </Text>
+                <Text style={styles.textocat}>Bed type: {bedType}</Text>
                 <TouchableOpacity  onPress={() => {
                     obtenerKey(5);
                     navigation.navigate("TablaAgregar", {
@@ -320,8 +320,8 @@ const Habitaciones = () => {
               >
                 <Text style={styles.titulocat}>{title}</Text>
                 <Text style={styles.textocat}>{description}</Text>
-                <Text style={styles.textocat}>Precio ${price} </Text>
-                <Text style={styles.textocat}>Tipo de cama: {bedType}</Text>
+                <Text style={styles.textocat}>Price: ${price} </Text>
+                <Text style={styles.textocat}>Bed type: {bedType}</Text>
                 <TouchableOpacity  onPress={() => {
                     obtenerKey(6);
                     navigation.navigate("TablaAgregar", {
@@ -359,8 +359,8 @@ const Habitaciones = () => {
               >
                 <Text style={styles.titulocat}>{title}</Text>
                 <Text style={styles.textocat}>{description}</Text>
-                <Text style={styles.textocat}>Precio ${price} </Text>
-                <Text style={styles.textocat}>Tipo de cama: {bedType}</Text>
+                <Text style={styles.textocat}>Price: ${price} </Text>
+                <Text style={styles.textocat}>Bed type: {bedType}</Text>
                 <TouchableOpacity  onPress={() => {
                     obtenerKey(7);
                     navigation.navigate("TablaAgregar", {
@@ -398,8 +398,8 @@ const Habitaciones = () => {
               >
                 <Text style={styles.titulocat}>{title}</Text>
                 <Text style={styles.textocat}>{description}</Text>
-                <Text style={styles.textocat}>Precio ${price} </Text>
-                <Text style={styles.textocat}>Tipo de cama: {bedType}</Text>
+                <Text style={styles.textocat}>Price: ${price} </Text>
+                <Text style={styles.textocat}>Bed type: {bedType}</Text>
                 <TouchableOpacity  onPress={() => {
                     obtenerKey(8);
                     navigation.navigate("TablaAgregar", {
@@ -421,7 +421,7 @@ const Habitaciones = () => {
           <View style={styles.pie}>
             <TouchableOpacity
               style={styles.boton}
-              onPress={() => alert("Selecciona la habitacion a reservar")}
+              onPress={() => alert("Select the room to reserve")}
             >
               <Text>RESERVA YA</Text>
             </TouchableOpacity>
