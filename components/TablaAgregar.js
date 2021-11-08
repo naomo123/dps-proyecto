@@ -3,9 +3,8 @@ import { DataTable } from 'react-native-paper';
 import Database from './DataBase';
 import { useNavigation } from "@react-navigation/core";
 import {View, Text, StyleSheet, TouchableHighlight, ScrollView} from 'react-native';
-import Habitaciones from './Habitaciones';
 
-const TablaAgregar = () => {
+const TablaAgregar = ({route}) => {
    
   const navigation = useNavigation("");
   return (
@@ -15,28 +14,15 @@ const TablaAgregar = () => {
         <View>
     <DataTable>
       <DataTable.Header>
-        <DataTable.Title>Tipo de habitacion</DataTable.Title>
-        <DataTable.Title numeric>Precio</DataTable.Title>
-        <DataTable.Title numeric>Noches</DataTable.Title>
+        <DataTable.Title>Tipo de habitacion: {route.params.tipo}</DataTable.Title>
+        <DataTable.Title numeric>Precio: {route.params.precio}</DataTable.Title>
+        <DataTable.Title numeric>Noches: {route.params.noche}</DataTable.Title>
       </DataTable.Header>
-
-      <DataTable.Row>
-        <DataTable.Cell>Frozen yogurt</DataTable.Cell>
-        <DataTable.Cell numeric>159</DataTable.Cell>
-        <DataTable.Cell numeric>6.0</DataTable.Cell>
-      </DataTable.Row>
-
-      <DataTable.Row>
-        <DataTable.Cell>Ice cream sandwich</DataTable.Cell>
-        <DataTable.Cell numeric>237</DataTable.Cell>
-        <DataTable.Cell numeric>8.0</DataTable.Cell>
-      </DataTable.Row>
-
     
     </DataTable>
     </View>
     <TouchableHighlight style={styles.btn_confirm}
-    onPress={()=> navigation.navigate("DatosOrden")}
+    onPress={()=> navigation.navigate("DatosOrden", {total: route.params.precio*route.params.noche})}
     
     >
                         <Text style={{ fontSize: 25, textAlign: 'center'}}>
@@ -65,7 +51,7 @@ const styles = StyleSheet.create({
         marginTop: 50
     },
     titulo: {
-        fontFamily: "Monospace",
+        fontFamily: "monospace",
         fontSize: 35,
         color: '#6e5535',
         textAlign: 'center',
