@@ -65,7 +65,7 @@ const Login = (props)=> {
               <AntDesign name="arrowleft"  style={styles.icon}  />
             </TouchableOpacity>
             <View style={styles.content2}>
-              <Text style={styles.titulo}>Iniciar sesión</Text>
+              <Text style={styles.titulo}>Log in</Text>
               <TextInput style={styles.input} placeholder="Username" value={email} onChangeText={text => setEmail(text)} />
               <TextInput secureTextEntry={true} placeholder="Password" style={styles.input} value={password} onChangeText={text => setPassword(text)} />
               <TouchableOpacity style={[styles.boton]} onPress={handleLogin}>
