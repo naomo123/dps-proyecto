@@ -51,28 +51,25 @@ const Inicio = () => {
                 }}
               >
                 <ScrollView>
-                  <Text style={styles.titulocat}>¿QUIÉNES SOMOS?</Text>
+                  <Text style={styles.titulocat}>ABOUT US?</Text>
                   <Text style={styles.titulocat}>
-                   MISIÓN
+                   MISSION
                   </Text>
                   <Text style={styles.textocat}>
-                    Brindar un servicio hotelero de excelencia, ofreciendo a
-                    nuestros huéspedes hospitalidad, mediante un trato
-                    individualizado por un personal altamente motivado, buscando
-                    superar las expectativas de nuestros visitantes.
+                  Provide a hotel service of excellence, offering our guests hospitality, through individualized treatment by highly motivated staff, seeking to exceed the expectations of our visitors.
                   </Text>
                   <Text style={styles.titulocat}>
                     VISIÓN
                   </Text>
                   <Text style={styles.textocat}>
-                    Si busca hoteles superiores, nuestro hotel de muestra es el
-                    lugar perfecto para comenzar su búsqueda. Nuestro hotel de
-                    muestra de lujo combina la modernidad actual con la
-                    elegancia clásica. Disfrutará de la comodidad de las
-                    habitaciones y suites recientemente rediseñadas, un gimnasio
-                    de servicio completo, una piscina, un gran restaurante y
-                    algunos de los mejores bares y salones para celebrar y
-                    entretener con un estilo sofisticado.
+                  If you are looking for superior hotels, our sample hotel is the
+                     perfect place to start your search. Our hotel in
+                     luxury sample combines current modernity with
+                     classic elegance. You will enjoy the comfort of the
+                     newly redesigned rooms and suites, a fitness center
+                     full service, a pool, a great restaurant and
+                     some of the best bars and lounges to celebrate and
+                     entertain with a sophisticated style.
                   </Text>
                   </ScrollView>
               </ImageBackground>
