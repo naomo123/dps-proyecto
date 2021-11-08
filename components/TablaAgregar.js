@@ -14,9 +14,9 @@ const TablaAgregar = ({route}) => {
         <View>
     <DataTable>
       <DataTable.Header>
-        <DataTable.Title>Tipo de habitacion: {route.params.tipo}</DataTable.Title>
-        <DataTable.Title numeric>Precio: {route.params.precio}</DataTable.Title>
-        <DataTable.Title numeric>Noches: {route.params.noche}</DataTable.Title>
+        <DataTable.Title>Room types : {route.params.tipo}</DataTable.Title>
+        <DataTable.Title numeric>Price: {route.params.precio}</DataTable.Title>
+        <DataTable.Title numeric>Nights: {route.params.noche}</DataTable.Title>
       </DataTable.Header>
     
     </DataTable>
@@ -26,7 +26,7 @@ const TablaAgregar = ({route}) => {
     
     >
                         <Text style={{ fontSize: 25, textAlign: 'center'}}>
-                            HACER RESERVA
+                            Make reservation 
                         </Text>
                     </TouchableHighlight>
 
@@ -35,7 +35,7 @@ const TablaAgregar = ({route}) => {
     
     >
                     <Text>
-                        CANCELAR PROCESO
+                        Cancel process 
                     </Text>
                     </TouchableHighlight>
                 </ScrollView>
