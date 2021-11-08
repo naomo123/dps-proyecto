@@ -23,31 +23,31 @@ const DatosOrden = ({route}) => {
   const [showModal, setShowModal] = useState(false);
   function checkTextInput () {
     if (!nombre.trim()) {
-      alert('Porfavor ingrese su nombre completo');
+      alert('Please enter your full name');
       return;
     }
     if (!direccion.trim()) {
-      alert('Porfavor ingrese su direccion');
+      alert('Please enter your address');
       return;
     }
     if (!telefono.trim()) {
-      alert('Porfavor ingrese su telefono');
+      alert('Please enter your phone number ');
       return;
     }
     if (!tarjeta.trim()) {
-      alert('Porfavor ingrese su tarjeta de credito o debito');
+      alert('Please enter your credit or debit card');
       return;
     }
     if (!fecha.trim()) {
-      alert('Porfavor ingrese la fecha como MM/YYYY');
+      alert('Please enter the date as MM / YYYY');
       return;
     }
     if (!cvv.trim()) {
-      alert('Porfavor ingrese su codigo de seguridad');
+      alert('Please enter your security code');
       return;
     }
     if (!postal.trim()) {
-      alert('Porfavor ingrese su postal');
+      alert('Please enter your security code');
       return;
     }
   }
@@ -69,24 +69,24 @@ const DatosOrden = ({route}) => {
             >
               <AntDesign name="arrowleft" style={styles.icon} />
             </TouchableOpacity>
-            <Text style={styles.titulo}>Total a pagar: ${route.params.total}</Text>
-            <Text style={styles.titulo}>Datos de Orden</Text>
+            <Text style={styles.titulo}>Total to pay: ${route.params.total}</Text>
+            <Text style={styles.titulo}>Order Data</Text>
             <TextInput
               style={styles.input}
-              placeholder="NOMBRE COMPLETO"
+              placeholder="FULL NAME"
               value={nombre}
               onChangeText={(text) => setNombre(text)}
             />
 
             <TextInput
               style={styles.input}
-              placeholder="DIRECCION"
+              placeholder="DIRECTION"
               value={direccion}
               onChangeText={(text) => setDireccion(text)}
             />
             <TextInput
               style={styles.input}
-              placeholder="TELEFONO"
+              placeholder="TELEPHONE"
               value={telefono}
               onChangeText={(text) => setTelefono(text)}
             />
@@ -94,7 +94,7 @@ const DatosOrden = ({route}) => {
               <Text style={styles.input2}>NOMBRE DE LA TARJETA</Text>
               <TextInput
                 style={styles.input2}
-                placeholder="Numero de Tarjeta"
+                placeholder="Card number"
                 value={tarjeta}
                 onChangeText={(text) => setTarjeta(text)}
               />
@@ -106,20 +106,20 @@ const DatosOrden = ({route}) => {
               />
               <TextInput
                 style={styles.input2}
-                placeholder="Codigo de seguridad /CVV"
+                placeholder="Security code /CVV"
                 value={cvv}
                 onChangeText={(text) => setCvv(text)}
               />
               <TextInput
                 style={styles.input2}
-                placeholder="Codigo Postal"
+                placeholder="Postal Code"
                 value={postal}
                 onChangeText={(text) => setPostal(text)}
               />
             </Card>
             <View style={styles.pie}>
             <TouchableOpacity style={[styles.boton]} onPress={() => {checkTextInput(); setShowModal(true);}}>
-              <Text style={styles.texto}>COMPLETAR TRÁMITE</Text>
+              <Text style={styles.texto}>COMPLETE PROCESS</Text>
             </TouchableOpacity>
             </View>
 
