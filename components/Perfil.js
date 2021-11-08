@@ -43,7 +43,7 @@ const handleSingOut = () =>{
             style={[styles.boton]}
             onPress={()=>{navigation.navigate('Habitaciones')}}
             >
-               <Text style={styles.texto}>Habitaciones</Text>
+               <Text style={styles.texto}>Rooms</Text>
        
           </TouchableOpacity>
           </View>
