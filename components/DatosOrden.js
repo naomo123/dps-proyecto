@@ -10,6 +10,7 @@ import {
 import { Card } from "react-native-elements";
 import { useNavigation } from "@react-navigation/core";
 import { AntDesign } from "@expo/vector-icons";
+import CustomAlert from './CustomAlert';
 const DatosOrden = ({route}) => {
   const navigation = useNavigation();
   const [nombre, setNombre] = useState("");
@@ -19,9 +20,46 @@ const DatosOrden = ({route}) => {
   const [fecha, setFecha] = useState("");
   const [cvv, setCvv] = useState("");
   const [postal, setPostal] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  function checkTextInput () {
+    if (!nombre.trim()) {
+      alert('Porfavor ingrese su nombre completo');
+      return;
+    }
+    if (!direccion.trim()) {
+      alert('Porfavor ingrese su direccion');
+      return;
+    }
+    if (!telefono.trim()) {
+      alert('Porfavor ingrese su telefono');
+      return;
+    }
+    if (!tarjeta.trim()) {
+      alert('Porfavor ingrese su tarjeta de credito o debito');
+      return;
+    }
+    if (!fecha.trim()) {
+      alert('Porfavor ingrese la fecha como MM/YYYY');
+      return;
+    }
+    if (!cvv.trim()) {
+      alert('Porfavor ingrese su codigo de seguridad');
+      return;
+    }
+    if (!postal.trim()) {
+      alert('Porfavor ingrese su postal');
+      return;
+    }
+  }
   return (
     <>
       <View style={styles.content}>
+      <CustomAlert
+        displayMode={'success'}
+        displayMsg={'Orden Pagada'}
+        visibility={showModal}
+        dismissAlert={setShowModal}
+      />
         <View style={styles.content2}>
           <ScrollView>
             <TouchableOpacity
@@ -62,7 +100,7 @@ const DatosOrden = ({route}) => {
               />
               <TextInput
                 style={styles.input2}
-                placeholder="MM/YY"
+                placeholder="MM/YYYY"
                 value={fecha}
                 onChangeText={(text) => setFecha(text)}
               />
@@ -80,7 +118,7 @@ const DatosOrden = ({route}) => {
               />
             </Card>
             <View style={styles.pie}>
-            <TouchableOpacity style={[styles.boton]}>
+            <TouchableOpacity style={[styles.boton]} onPress={() => {checkTextInput(); setShowModal(true);}}>
               <Text style={styles.texto}>COMPLETAR TRÁMITE</Text>
             </TouchableOpacity>
             </View>
@@ -169,4 +207,5 @@ const styles = StyleSheet.create({
   },
 });
 export default DatosOrden;
+
 
