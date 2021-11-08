@@ -41,7 +41,7 @@ const Signup = () => {
         .catch((error) => alert(error.message));
     } else {
       alert(
-        "registro fallido, La contraseña es diferente de confirmar la contraseña"
+        "registration failed, password is different from confirm password"
       );
     }
   };
@@ -58,7 +58,7 @@ const Signup = () => {
             <AntDesign name="arrowleft" style={styles.icon} />
           </TouchableOpacity>
           <View style={styles.content2}>
-            <Text style={styles.titulo}> REGISTRAR</Text>
+            <Text style={styles.titulo}>TO REGISTER</Text>
 
             <TextInput
               style={styles.input}
